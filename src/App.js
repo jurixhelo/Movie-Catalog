@@ -8,8 +8,8 @@ function App() {
   const [error, setError] = useState("");
 
   const handleSearchResults = (results, errorMessage) => {
-    setMovies(results || []);
-    setError(errorMessage || "");
+    setMovies(results || []); // handle movie list result
+    setError(errorMessage || ""); // handle error 
   };
 
   return (
