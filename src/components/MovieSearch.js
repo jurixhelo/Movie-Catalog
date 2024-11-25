@@ -5,8 +5,10 @@ function MovieSearch({ onSearchResults }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = async () => {
-    if (!searchTerm.trim()) return;
-
+    if (!searchTerm.trim()) {
+      onSearchResults([], "Add at least 3 characters!!");
+      return;
+    }
     try {
       const movies = await fetchMovies(searchTerm);
       onSearchResults(movies.slice(0, 3), ""); // Pass top 3 results to parent
